@@ -18,11 +18,15 @@ def main():
     
     # Button to find the largest number
     if st.button("Find Largest"):
+        if not num1 or not num2 or not num3:
+            st.warning("Please enter values for all three numbers.")
+            return
+
         try:
-            # Convert input to float, handling empty string as 0.0
-            num1 = float(num1) if num1 else 0.0
-            num2 = float(num2) if num2 else 0.0
-            num3 = float(num3) if num3 else 0.0
+            # Convert input to float
+            num1 = float(num1)
+            num2 = float(num2)
+            num3 = float(num3)
 
             largest = find_largest(num1, num2, num3)
             st.success(f"The largest number is: {largest}")
